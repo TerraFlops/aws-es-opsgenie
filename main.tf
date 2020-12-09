@@ -83,7 +83,7 @@ resource "aws_cloudwatch_metric_alarm" "alarm" {
   # Link to the requested ElasticSearch domain
   dimensions = {
     ClientId = data.aws_caller_identity.default.account_id
-    DomainName = data.aws_elasticsearch_domain.domain
+    DomainName = data.aws_elasticsearch_domain.domain.domain_name
   }
   # Trigger the SNS topic on alarm
   alarm_actions = [
