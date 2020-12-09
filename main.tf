@@ -1,6 +1,6 @@
 # Convert integration name into snake case
 locals {
-  domain_name_snake = join("", [for element in split("-", lower(var.domain_name)) : title(element)])
+  domain_name_snake = join("", [for element in split("-", lower(replace(var.domain_name, ".", "-"))) : title(element)])
   opsgenie_responding_teams = setunion(var.opsgenie_responding_teams, toset([var.opsgenie_owner_team]))
 
   # Create alarm name based on the trigger condition (hopefully prevent duplicates)
