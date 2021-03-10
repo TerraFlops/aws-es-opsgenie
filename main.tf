@@ -105,7 +105,7 @@ resource "opsgenie_integration_action" "alarm" {
     entity = var.opsgenie_entity
     user = var.opsgenie_user
     tags = setunion(toset([
-      "SQS",
+      "ES",
       var.metric_name
     ]), var.opsgenie_tags)
     priority = var.opsgenie_priority
